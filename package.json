@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/adityasharat/node-redirect/issues"
   },
-  "homepage": "https://github.com/adityasharat/node-redirect#readme"
+  "homepage": "https://github.com/adityasharat/node-redirect#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
 }
