@@ -1,0 +1,6 @@
+{
+  "port": "8080",
+  "isAndroidUrl": "http://google.com/",
+  "default": "http://facebook.com/",
+  "redirectRoute": "/"
+}

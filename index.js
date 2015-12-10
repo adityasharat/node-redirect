@@ -1,3 +1,4 @@
+var fs = require('fs');
 var express = require('express');
 var http = require('http');
 var bodyParser = require('body-parser');
@@ -5,23 +6,22 @@ var app = express();
 var MobileDetect = require('mobile-detect');
 var server;
 
+var config = JSON.parse(fs.readFileSync('config.json').toString());
+
 /* Configure Express */
 
 // set port
-app.set('port', 8080);
-
-// Any HTTP request will be satisfied using the content under './client'
-app.use(express.static('./client'));
+app.set('port', config.port || 8080);
 
 // use a body parse for JSON requests
 app.use(bodyParser.json());
 
-app.get('/redirect', function (req, res) {
+app.get(config.redirectRoute || '/redirect', function (req, res) {
   var mobileDetect = new MobileDetect(req.headers['user-agent']);
   if (mobileDetect.os() === 'AndroidOS') {
-    res.redirect('http://facebook.com');
+    res.redirect(config.isAndroidUrl || 'http://google.com/');
   } else {
-    res.redirect('http://google.com');
+    res.redirect(config.default || 'http://facebook.com/');
   }
 });
 
