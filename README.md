@@ -14,7 +14,7 @@ example:
 ```json
 {
   "port": "80",
-  "isAndroidUrl": "http://google.com/",
+  "androidUrl": "http://google.com/",
   "default": "http://facebook.com/",
   "redirectRoute": "/"
 }
